@@ -31,7 +31,7 @@ registerPuzzle({ id, name, icon, desc,
 - `sw.js` はネット優先(オフライン時だけ保存分)。中身を直すだけなら触らない。**ファイルを追加した時だけ `FILES` に1行足す**。
 - 保存キーは必ず `puzzle.` で始める(localStorage は同じ github.io の他アプリと共有されるため)。
 - 動作確認用サーバー:親フォルダの `.claude/launch.json` の `puzzle`(ポート8160)。
-- git は puzzle フォルダ単独。GitHub公開は未定(形になってから相談)。
+- git は puzzle フォルダ単独(`normal-megante/puzzle`、公開リポジトリ)。
 
 ## 進み具合
 - [x] 1 土台(メニュー・画面切り替え・共通デザイン・ダークモード)
