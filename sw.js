@@ -32,6 +32,8 @@ const FILES = [
   'js/games/gravity.js',
   'js/games/stagedata-mergebox.js',
   'js/games/mergebox.js',
+  'js/games/nono.js',
+  'js/games/link.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];

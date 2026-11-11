@@ -61,8 +61,8 @@ function makeApi(id) {
   const CATEGORIES = [
     ['オリジナル', ['mirror', 'mergebox', 'colorstroke', 'stepdown', 'gravity', 'timedlights']],
     ['動かす', ['fifteen', 'sokoban', 'cars', 'ice', 'hanoi']],
-    ['線・つなぐ', ['onestroke', 'pipes']],
-    ['数字・論理', ['sudoku', 'minesweeper', 'lightsout', 'hitblow', 'merge']],
+    ['線・つなぐ', ['link', 'onestroke', 'pipes']],
+    ['数字・論理', ['sudoku', 'nono', 'minesweeper', 'lightsout', 'hitblow', 'merge']],
     ['消す・覚える', ['same', 'memory', 'seq']],
   ];
 
