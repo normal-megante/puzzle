@@ -38,9 +38,11 @@ registerPuzzle({ id, name, icon, desc,
 - [x] 2 15パズル(3×3/4×4/5×5、手数・時間・ベスト記録、矢印キー対応)
 - [x] 3 ライツアウト(3×3/4×4/5×5、「最初から」で同じ問題をやり直し、CSS接頭辞 `l-`)
 - [x] 4 マインスイーパー(初級9×9/中級11×15/上級13×20、1手目安全、長押し・右クリック・旗モード、数字タップでまとめ開け、CSS接頭辞 `m-`)
-- [x] 5 PWA化(`manifest.webmanifest` id=`puzzle/`、`sw.js`、`icons/`)。**GitHub公開はまだ**(ユーザーに確認してから)
+- [x] 5 PWA化(`manifest.webmanifest` id=`puzzle/`、`sw.js`、`icons/`)+GitHub Pages 公開
 - [ ] 6〜 オリジナルルールのパズル(案を出し合って決める)
 
 作りたいパズルの一覧と作る順番の目安は `IDEAS.md`(必要な時だけ読む)。メニューが増えたら分類やお気に入りを検討。
 
-次にやること:GitHub公開(ユーザーOK済み。ユーザーは GitHub Desktop を使う。remote は未登録にしてあるので「Publish repository」で作成 → github.com の Settings → Pages で main を公開)→ スマホ実機で確認(長押しの旗、オフライン起動は未確認)→ ステップ6の案出し。
+公開先:https://normal-megante.github.io/puzzle/ (GitHub Pages、main。2026-11-11 公開・表示確認済み)。更新の反映は、commit 後にユーザーが GitHub Desktop で「Push origin」を押す(gh コマンドは無い)。
+
+次にやること:スマホ実機の感想をもらう(インストール、長押しの旗、機内モードでの起動は未確認)→ `IDEAS.md` の順番1のグループから作る。
