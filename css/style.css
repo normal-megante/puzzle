@@ -295,3 +295,40 @@ button { font: inherit; color: inherit; cursor: pointer; }
   display: flex; align-items: center; justify-content: center;
 }
 .o-sw { display: inline-block; width: .8em; height: .8em; border-radius: 50%; margin-right: 4px; border: 1px solid var(--line); }
+
+/* 車ずらし */
+.v-board {
+  position: relative; aspect-ratio: 1; border: 4px solid #5b6477; border-radius: 10px;
+  background-color: var(--card);
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: calc(100% / 6) calc(100% / 6);
+  font-size: calc(min(100vw - 40px, 480px) / 6 * .5);
+  touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.v-exit { position: absolute; right: -4px; top: calc(100% / 3); width: 6px; height: calc(100% / 6); background: var(--ok); border-radius: 3px; }
+.v-car { position: absolute; padding: 3px; transition: left .12s, top .12s; cursor: grab; }
+.v-car.drag { transition: none; z-index: 2; }
+.v-car span {
+  display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;
+  border-radius: 9px; box-shadow: 0 2px 3px rgba(0, 0, 0, .25); line-height: 1; pointer-events: none;
+}
+
+/* パイプつなぎ */
+.p-board {
+  display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 2px;
+  padding: 3px; background: var(--line); border-radius: 10px;
+  touch-action: manipulation; user-select: none; -webkit-user-select: none;
+}
+.p-cell { aspect-ratio: 1; padding: 0; border: 0; border-radius: 4px; background: var(--card); color: var(--sub); }
+.p-cell.wet { color: #2f95e0; }
+.p-cell svg { display: block; width: 100%; height: 100%; pointer-events: none; }
+.p-cell path { stroke: currentColor; stroke-width: .42; fill: none; }
+.p-cell circle { fill: currentColor; }
+
+/* 光の順番 */
+.q-board { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 10px; touch-action: manipulation; }
+.q-pad {
+  aspect-ratio: 1; border: 0; border-radius: 16px; background: var(--c);
+  opacity: .35; transition: opacity .08s, transform .08s;
+}
+.q-pad.lit { opacity: 1; transform: scale(1.04); box-shadow: 0 0 18px var(--c); }
