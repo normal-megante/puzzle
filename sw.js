@@ -34,6 +34,7 @@ const FILES = [
   'js/games/mergebox.js',
   'js/games/nono.js',
   'js/games/link.js',
+  'js/games/shadow.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];
