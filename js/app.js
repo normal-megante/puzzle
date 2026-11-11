@@ -6,6 +6,11 @@
 const Puzzles = [];
 function registerPuzzle(p) { Puzzles.push(p); }
 
+function fmtTime(sec) {
+  sec = Math.floor(sec);
+  return `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
+}
+
 // パズルごとの保存領域つき共通機能
 function makeApi(id) {
   const key = k => `puzzle.${id}.${k}`;
@@ -19,9 +24,17 @@ function makeApi(id) {
     save(k, v) {
       try { localStorage.setItem(key(k), JSON.stringify(v)); } catch { /* 保存不可でも遊べる */ }
     },
-    fmtTime(sec) {
-      sec = Math.floor(sec);
-      return `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
+    fmtTime,
+    // 時間表示つきタイマー。start() は何度呼んでもよい。stop() は経過秒を返す。
+    timer(el) {
+      let t0 = 0, id = null, sec = 0;
+      const show = () => { el.textContent = fmtTime(sec); };
+      const tick = () => { sec = (Date.now() - t0) / 1000; show(); };
+      return {
+        start() { if (!id) { t0 = Date.now() - sec * 1000; id = setInterval(tick, 250); } },
+        stop() { if (id) { clearInterval(id); id = null; tick(); } return sec; },
+        reset() { clearInterval(id); id = null; sec = 0; show(); },
+      };
     },
   };
 }

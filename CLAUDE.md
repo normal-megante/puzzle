@@ -21,7 +21,7 @@ registerPuzzle({ id, name, icon, desc,
   start(root, api) { /* root に画面を作る */ return () => { /* 後片付け(タイマー・キー入力解除) */ }; } });
 ```
 - `api.load(key, 初期値)` / `api.save(key, 値)` … localStorage(`puzzle.<id>.<key>`)
-- `api.fmtTime(秒)` … `m:ss`
+- `api.fmtTime(秒)` … `m:ss` / `api.timer(表示する要素)` … `{start, stop(経過秒を返す), reset}`(新しいパズルはこれを使う)
 - ES modules は使わない(file:// で動かなくなるため)。グローバルは `Puzzles` と `registerPuzzle` だけ。
 
 ## 決めたこと
@@ -39,10 +39,11 @@ registerPuzzle({ id, name, icon, desc,
 - [x] 3 ライツアウト(3×3/4×4/5×5、「最初から」で同じ問題をやり直し、CSS接頭辞 `l-`)
 - [x] 4 マインスイーパー(初級9×9/中級11×15/上級13×20、1手目安全、長押し・右クリック・旗モード、数字タップでまとめ開け、CSS接頭辞 `m-`)
 - [x] 5 PWA化(`manifest.webmanifest` id=`puzzle/`、`sw.js`、`icons/`)+GitHub Pages 公開
-- [ ] 6〜 オリジナルルールのパズル(案を出し合って決める)
+- [x] 6 数字合体(2048系、`n-`、途中保存あり)・神経衰弱(`c-`)・ハノイの塔(`h-`)。共通タイマー `api.timer(el)` を追加
+- [ ] 7〜 `IDEAS.md` の一覧から順に追加(オリジナルルールは元の定番を作った後)
 
 作りたいパズルの一覧と作る順番の目安は `IDEAS.md`(必要な時だけ読む)。メニューが増えたら分類やお気に入りを検討。
 
 公開先:https://normal-megante.github.io/puzzle/ (GitHub Pages、main。2026-11-11 公開・表示確認済み)。更新の反映は、commit 後にユーザーが GitHub Desktop で「Push origin」を押す(gh コマンドは無い)。
 
-次にやること:スマホ実機の感想をもらう(インストール、長押しの旗、機内モードでの起動は未確認)→ `IDEAS.md` の順番1のグループから作る。
+次にやること:ユーザーが GitHub Desktop で Push → スマホ実機の感想をもらう(長押しの旗、機内モード起動、数字合体のスワイプは未確認)→ `IDEAS.md` の順番1の残り(ヒット&ブロー、さめがめ、光った順番、氷の床)。

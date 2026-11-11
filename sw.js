@@ -13,6 +13,9 @@ const FILES = [
   'js/games/fifteen.js',
   'js/games/lightsout.js',
   'js/games/minesweeper.js',
+  'js/games/merge.js',
+  'js/games/memory.js',
+  'js/games/hanoi.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];
