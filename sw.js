@@ -28,6 +28,10 @@ const FILES = [
   'js/games/cars.js',
   'js/games/pipes.js',
   'js/games/seq.js',
+  'js/games/stepdown.js',
+  'js/games/gravity.js',
+  'js/games/stagedata-mergebox.js',
+  'js/games/mergebox.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];
