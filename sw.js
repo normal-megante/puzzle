@@ -22,6 +22,8 @@ const FILES = [
   'js/games/stagedata.js',
   'js/games/sokoban.js',
   'js/games/sudoku.js',
+  'js/games/stroke.js',
+  'js/games/timedlights.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];

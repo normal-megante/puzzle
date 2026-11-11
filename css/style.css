@@ -264,3 +264,34 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .d-pad { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin: 12px 0; }
 .d-pad .btn { padding: 9px 0; font-size: 1.1rem; }
 .d-pad .btn.dim { opacity: .35; }
+
+/* 時限ライツアウト(.l-board / .l-cell を流用) */
+.l-board.tl { font-size: calc(min(100vw - 32px, 488px) / var(--n) * .4); }
+.l-board.tl .l-cell { font: inherit; font-weight: 700; color: var(--text); line-height: 1; }
+.l-board.tl .l-cell.on { color: #1d2130; }
+
+/* 一筆書き・色まぜ一筆書き */
+.o-board {
+  position: relative; display: grid; grid-template-columns: repeat(var(--w), 1fr); gap: 3px;
+  padding: 3px; background: var(--line); border-radius: 10px;
+  font-size: calc(min(100vw - 32px, 488px) / var(--w) * .42);
+  touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.o-board svg { position: absolute; inset: 3px; width: calc(100% - 6px); height: calc(100% - 6px); pointer-events: none; }
+.o-board svg path { stroke-width: .22; stroke-linecap: round; fill: none; }
+.o-cell {
+  aspect-ratio: 1; border-radius: 6px; background: var(--card);
+  display: flex; align-items: center; justify-content: center; line-height: 1;
+}
+.o-cell.wall { background: none; }
+.o-cell.visited { background: rgba(79, 109, 245, .2); }
+.o-start { color: var(--sub); font-weight: 700; font-size: .8em; }
+.o-paint {
+  width: 74%; height: 74%; border-radius: 50%; color: #fff; font-size: .42em; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.o-goal {
+  width: 86%; height: 86%; border-radius: 50%; border: .22em solid; font-size: .8em;
+  display: flex; align-items: center; justify-content: center;
+}
+.o-sw { display: inline-block; width: .8em; height: .8em; border-radius: 50%; margin-right: 4px; border: 1px solid var(--line); }

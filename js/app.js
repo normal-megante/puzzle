@@ -59,8 +59,9 @@ function makeApi(id) {
 
   // メニューの分類。新しいパズルの id をどこかに足す(足し忘れると「その他」に出る)。
   const CATEGORIES = [
-    ['オリジナル', ['mirror']],
+    ['オリジナル', ['mirror', 'colorstroke', 'timedlights']],
     ['動かす', ['fifteen', 'sokoban', 'ice', 'hanoi']],
+    ['線を引く', ['onestroke']],
     ['数字・論理', ['sudoku', 'minesweeper', 'lightsout', 'hitblow', 'merge']],
     ['消す・覚える', ['same', 'memory']],
   ];
