@@ -206,3 +206,31 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .i-pad [data-dir="1"] { grid-column: 2; }
 .i-pad [data-dir="0"] { grid-column: 1; }
+
+/* 倉庫番・鏡の倉庫番 */
+.k-stages { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 12px; }
+.k-stages .btn { padding: 8px 0; min-height: 38px; }
+.k-board {
+  position: relative; display: grid; grid-template-columns: repeat(var(--w), 1fr);
+  background: var(--card); border-radius: 10px; overflow: hidden;
+  font-size: calc(min(100vw - 32px, 488px) / var(--w) * .62);
+  touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.k-cell { aspect-ratio: 1; box-shadow: inset 0 0 0 1px var(--line); position: relative; }
+.k-cell.wall { background: #5b6477; box-shadow: inset 0 0 0 1px #4a5263; }
+.k-cell.goal::after, .k-cell.ga::after, .k-cell.gb::after {
+  content: ""; position: absolute; inset: 34%; border-radius: 50%; background: var(--ok);
+}
+.k-cell.ga::after, .k-cell.gb::after { inset: 12%; background: none; border: 4px solid #3b7dd8; }
+.k-cell.gb::after { border-color: #e5484d; }
+.k-obj {
+  position: absolute; top: 0; left: 0; width: calc(100% / var(--w)); aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center; line-height: 1;
+  transition: transform .1s linear;
+}
+.k-box.ok { filter: drop-shadow(0 0 5px var(--ok)); }
+.k-me::after {
+  content: ""; width: 58%; height: 58%; border-radius: 50%; background: #3b7dd8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+}
+.k-me.b::after { background: #e5484d; }

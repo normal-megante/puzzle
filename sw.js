@@ -19,6 +19,8 @@ const FILES = [
   'js/games/hitblow.js',
   'js/games/same.js',
   'js/games/ice.js',
+  'js/games/stagedata.js',
+  'js/games/sokoban.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];
