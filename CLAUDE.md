@@ -58,4 +58,6 @@ registerPuzzle({ id, name, icon, desc,
 
 公開先:https://normal-megante.github.io/puzzle/ (GitHub Pages、main。2026-11-11 公開・表示確認済み)。更新の反映は、commit 後にユーザーが GitHub Desktop で「Push origin」を押す(gh コマンドは無い)。
 
+- [x] 19 色水そろえ(`tb-`、分類「動かす」)。合計39個
+
 次にやること:ユーザーが GitHub Desktop で Push → スマホ実機の感想をもらって直す(長押し、スワイプ、なぞり、ドラッグ、マスや文字の大きさ、機内モード起動はどれも未確認)。改良の候補:お絵かきロジックに絵が出るステージ、答えが1つとは限らない4つ(ひとりにしてくれ・ぬりかべ・スリザーリンク・カックロ大)の一意性保証、スライディングブロックの盤面の種類、遊び方の図解。

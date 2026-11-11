@@ -49,6 +49,7 @@ const FILES = [
   'js/games/nurikabe.js',
   'js/games/kakuro.js',
   'js/games/slither.js',
+  'js/games/tubes.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];
