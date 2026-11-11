@@ -474,3 +474,43 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .fb-pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 360px; margin: 12px auto 0; touch-action: none; user-select: none; -webkit-user-select: none; }
 .fb-pad .btn { min-height: 54px; font-size: 1.1rem; padding: 6px; }
 .fb-pad [data-act="drop"] { grid-column: span 2; }
+
+/* 連鎖ブロック(落ちものブロックの fb- を流用。盤面の形だけ変える) */
+.fb-canvas.cb { width: min(50vw, 210px); aspect-ratio: 6 / 12; }
+.fb-next.cb { width: 40px; aspect-ratio: 1 / 2; }
+
+/* 3マッチ */
+.m3-board {
+  display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 3px;
+  padding: 4px; background: var(--line); border-radius: 10px;
+  font-size: calc(min(100vw - 32px, 488px) / var(--n) * .45);
+  touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.m3-cell {
+  aspect-ratio: 1; padding: 0; border: 0; border-radius: 22%; color: rgba(255, 255, 255, .9);
+  font: inherit; line-height: 1; transition: transform .15s, opacity .2s;
+}
+.m3-cell.sel { box-shadow: 0 0 0 3px var(--text); transform: scale(.9); }
+.m3-cell.pop { transform: scale(.4); opacity: .3; }
+.m3-cell.empty { background: none; }
+
+/* 計算ブロック */
+.kk-board {
+  display: grid; grid-template-columns: repeat(var(--n), 1fr);
+  border: 3px solid var(--text); border-radius: 6px; overflow: hidden; background: var(--card);
+  font-size: calc(min(100vw - 38px, 482px) / var(--n) * .5);
+  touch-action: manipulation; user-select: none; -webkit-user-select: none;
+}
+.kk-cell {
+  position: relative; aspect-ratio: 1; padding: 0; border: 0; border-radius: 0; background: none;
+  border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  color: var(--accent); font: inherit; line-height: 1;
+}
+.kk-cell.br { border-right: 3px solid var(--text); }
+.kk-cell.bb { border-bottom: 3px solid var(--text); }
+.kk-cell > b { position: absolute; top: 3px; left: 4px; font-size: .34em; color: var(--text); z-index: 1; }
+.kk-cell > span { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding-top: 12%; }
+.kk-cell.sel { background: rgba(79, 109, 245, .35); }
+.kk-cell.bad { color: #e5484d; }
+.kk-cell.cbad > b { color: #e5484d; }
+.kk-cell .d-notes { padding: 26% 6% 2%; }

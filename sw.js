@@ -39,6 +39,9 @@ const FILES = [
   'js/games/slide.js',
   'js/games/flip.js',
   'js/games/fall.js',
+  'js/games/chain.js',
+  'js/games/match3.js',
+  'js/games/kenken.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];
