@@ -50,6 +50,8 @@ const FILES = [
   'js/games/kakuro.js',
   'js/games/slither.js',
   'js/games/tubes.js',
+  'js/games/peg.js',
+  'js/games/blocks.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];

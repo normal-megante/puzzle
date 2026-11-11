@@ -649,3 +649,38 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .tb-tube i:first-child { border-radius: 5px 5px 16px 16px; }
 .tb-tube.sel { transform: translateY(-12px); border-color: var(--accent); }
 .tb-tube.full { border-color: var(--ok); }
+
+/* ボールそろえ(色水そろえの tb- に追加) */
+.tb-board.ball .tb-tube i, .tb-board.ball .tb-tube i:first-child { border-radius: 50%; }
+
+/* ペグソリティア */
+.pg-board { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; touch-action: manipulation; }
+.pg-cell {
+  aspect-ratio: 1; padding: 0; border: 0; border-radius: 50%; background: var(--line); position: relative;
+}
+.pg-cell.peg::after {
+  content: ""; position: absolute; inset: 12%; border-radius: 50%; background: var(--accent);
+  box-shadow: inset -3px -4px 6px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .3);
+}
+.pg-cell.sel::after { background: #e0a100; transform: scale(1.1); }
+.pg-cell.can { box-shadow: 0 0 0 3px var(--ok); background: rgba(47, 166, 106, .3); }
+
+/* ブロック置き */
+.bp-board {
+  display: grid; grid-template-columns: repeat(8, 1fr); gap: 2px;
+  padding: 3px; background: var(--line); border-radius: 10px;
+  touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.bp-cell { aspect-ratio: 1; border-radius: 4px; background: var(--card); }
+.bp-cell.hint { opacity: .45; }
+.bp-tray { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; touch-action: none; user-select: none; -webkit-user-select: none; }
+.bp-slot {
+  aspect-ratio: 1; padding: 6px; border: 0; border-radius: 12px; background: var(--card);
+  box-shadow: inset 0 0 0 1px var(--line); display: flex; align-items: center; justify-content: center; cursor: grab;
+}
+.bp-slot.dead { opacity: .35; }
+.bp-slot.lifted .bp-piece { opacity: .2; }
+.bp-piece { display: grid; gap: 2px; pointer-events: none; }
+.bp-piece i { border-radius: 3px; aspect-ratio: 1; }
+.bp-ghost { position: fixed; z-index: 50; pointer-events: none; }
+.bp-ghost i { position: absolute; border-radius: 4px; opacity: .85; box-shadow: 0 3px 6px rgba(0, 0, 0, .3); }
