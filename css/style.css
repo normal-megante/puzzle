@@ -440,3 +440,37 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .sh-cell[data-h="3"] { background: #3d55c9; }
 .sh-bad { color: #e5484d; }
 .sh-cell[data-h="1"] { color: #1d2130; }
+
+/* スライディングブロック */
+.sb-board {
+  position: relative; width: min(100%, 360px); aspect-ratio: 4 / 5; margin: 0 auto;
+  border: 4px solid #5b6477; border-radius: 10px; background: var(--card);
+  touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.sb-exit { position: absolute; left: 25%; bottom: -4px; width: 50%; height: 6px; background: var(--ok); border-radius: 3px; }
+.sb-piece { position: absolute; padding: 3px; transition: left .08s, top .08s; cursor: grab; }
+.sb-piece span { display: block; width: 100%; height: 100%; border-radius: 9px; background: #e0a100; box-shadow: 0 2px 3px rgba(0, 0, 0, .25); pointer-events: none; }
+.sb-piece.main span { background: #e5484d; }
+.sb-piece.wide span { background: #2fa66a; }
+.sb-piece.tall span { background: #3b7dd8; }
+
+/* ひとりリバーシ */
+.r-board {
+  display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 2px;
+  padding: 4px; background: #1f6b46; border-radius: 10px; touch-action: manipulation;
+}
+.r-cell { position: relative; aspect-ratio: 1; padding: 0; border: 0; border-radius: 3px; background: #2f9461; }
+.r-cell::after { content: ""; position: absolute; inset: 12%; border-radius: 50%; transition: background .2s; }
+.r-cell.black::after { background: #16181d; box-shadow: 0 2px 3px rgba(0, 0, 0, .4); }
+.r-cell.white::after { background: #f4f5fa; box-shadow: 0 2px 3px rgba(0, 0, 0, .4); }
+.r-cell.can::after { inset: 40%; background: rgba(0, 0, 0, .35); }
+
+/* 落ちものブロック */
+.fb-main { display: flex; justify-content: center; align-items: flex-start; gap: 12px; }
+.fb-canvas { width: min(58vw, 250px); aspect-ratio: 10 / 18; border: 3px solid #5b6477; border-radius: 6px; touch-action: none; }
+.fb-side { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 96px; }
+.fb-side small { color: var(--sub); }
+.fb-next { width: 84px; aspect-ratio: 2 / 1; }
+.fb-pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 360px; margin: 12px auto 0; touch-action: none; user-select: none; -webkit-user-select: none; }
+.fb-pad .btn { min-height: 54px; font-size: 1.1rem; padding: 6px; }
+.fb-pad [data-act="drop"] { grid-column: span 2; }

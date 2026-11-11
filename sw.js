@@ -35,6 +35,10 @@ const FILES = [
   'js/games/nono.js',
   'js/games/link.js',
   'js/games/shadow.js',
+  'js/games/stagedata-slide.js',
+  'js/games/slide.js',
+  'js/games/flip.js',
+  'js/games/fall.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];
