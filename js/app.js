@@ -73,3 +73,8 @@ function makeApi(id) {
     route();
   });
 })();
+
+// オフライン対応(http/https で開いた時だけ。ダブルクリックで開いた時は何もしない)
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(console.error));
+}
