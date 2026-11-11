@@ -41,4 +41,4 @@ registerPuzzle({ id, name, icon, desc,
 - [x] 5 PWA化(`manifest.webmanifest` id=`puzzle/`、`sw.js`、`icons/`)。**GitHub公開はまだ**(ユーザーに確認してから)
 - [ ] 6〜 オリジナルルールのパズル(案を出し合って決める)
 
-次にやること:GitHub公開(他アプリは `normal-megante/<名前>` で Pages 公開)→ スマホ実機で確認(長押しの旗、オフライン起動は未確認)→ ステップ6の案出し。
+次にやること:GitHub公開(ユーザーOK済み。remote は `normal-megante/puzzle`、ブランチ main で登録済み。gh コマンドは無いので、リポジトリ作成と Pages 設定はユーザーが github.com で行う → その後 `git push -u origin main`)→ スマホ実機で確認(長押しの旗、オフライン起動は未確認)→ ステップ6の案出し。
