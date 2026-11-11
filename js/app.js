@@ -47,6 +47,8 @@ function makeApi(id) {
         start() { if (!id) { t0 = Date.now() - sec * 1000; id = setInterval(tick, 250); } },
         stop() { if (id) { clearInterval(id); id = null; tick(); } return sec; },
         reset() { clearInterval(id); id = null; sec = 0; show(); },
+        set(s) { sec = s; if (id) t0 = Date.now() - sec * 1000; show(); }, // 途中保存からの再開用
+        value() { if (id) sec = (Date.now() - t0) / 1000; return sec; },
       };
     },
   };
@@ -55,20 +57,37 @@ function makeApi(id) {
 (() => {
   let cleanup = null;
 
+  // メニューの分類。新しいパズルの id をどこかに足す(足し忘れると「その他」に出る)。
+  const CATEGORIES = [
+    ['オリジナル', ['mirror']],
+    ['動かす', ['fifteen', 'sokoban', 'ice', 'hanoi']],
+    ['数字・論理', ['sudoku', 'minesweeper', 'lightsout', 'hitblow', 'merge']],
+    ['消す・覚える', ['same', 'memory']],
+  ];
+
   function showMenu(view) {
-    const list = document.createElement('div');
-    list.className = 'menu';
-    for (const p of Puzzles) {
-      const a = document.createElement('a');
-      a.className = 'card';
-      a.href = '#' + p.id;
-      a.innerHTML = `<span class="card-icon"></span><span><b></b><small></small></span>`;
-      a.querySelector('.card-icon').textContent = p.icon;
-      a.querySelector('b').textContent = p.name;
-      a.querySelector('small').textContent = p.desc;
-      list.appendChild(a);
+    const listed = new Set(CATEGORIES.flatMap(c => c[1]));
+    const rest = Puzzles.filter(p => !listed.has(p.id)).map(p => p.id);
+    for (const [title, ids] of [...CATEGORIES, ['その他', rest]]) {
+      const items = ids.map(id => Puzzles.find(p => p.id === id)).filter(Boolean);
+      if (!items.length) continue;
+      const h = document.createElement('h2');
+      h.className = 'menu-title';
+      h.textContent = title;
+      const list = document.createElement('div');
+      list.className = 'menu';
+      for (const p of items) {
+        const a = document.createElement('a');
+        a.className = 'card';
+        a.href = '#' + p.id;
+        a.innerHTML = `<span class="card-icon"></span><b></b><small></small>`;
+        a.querySelector('.card-icon').textContent = p.icon;
+        a.querySelector('b').textContent = p.name;
+        a.querySelector('small').textContent = p.desc;
+        list.appendChild(a);
+      }
+      view.append(h, list);
     }
-    view.appendChild(list);
   }
 
   function route() {
