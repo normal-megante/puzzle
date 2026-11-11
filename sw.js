@@ -45,6 +45,10 @@ const FILES = [
   'js/games/akari.js',
   'js/games/star.js',
   'js/games/hashi.js',
+  'js/games/hitori.js',
+  'js/games/nurikabe.js',
+  'js/games/kakuro.js',
+  'js/games/slither.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];

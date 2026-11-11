@@ -567,3 +567,69 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .hs-isl.ok { background: var(--ok); border-color: var(--ok); color: #fff; }
 .hs-isl.bad { background: #e5484d; border-color: #e5484d; color: #fff; }
+
+/* ひとりにしてくれ */
+.ht-board, .nk-board {
+  display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 2px;
+  padding: 3px; background: var(--line); border-radius: 10px;
+  font-size: calc(min(100vw - 32px, 488px) / var(--n) * .48);
+  touch-action: manipulation; user-select: none; -webkit-user-select: none;
+}
+.ht-cell, .nk-cell {
+  aspect-ratio: 1; padding: 0; border: 0; border-radius: 4px; background: var(--card);
+  color: var(--text); font: inherit; font-weight: 700; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.ht-cell.dup { color: #e5484d; }
+.ht-cell.keep { box-shadow: inset 0 0 0 3px var(--ok); border-radius: 50%; }
+.ht-cell.black { background: #2a2d38; color: rgba(255, 255, 255, .25); }
+.ht-cell.black.bad { background: #a8262b; }
+
+/* ぬりかべ */
+.nk-cell { color: var(--sub); }
+.nk-cell.num { color: var(--text); }
+.nk-cell.num.ok { color: var(--ok); }
+.nk-cell.sea { background: #2a4d7a; }
+.nk-cell.sea.bad { background: #a8262b; }
+
+/* カックロ */
+.kr-board {
+  display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 1px;
+  padding: 2px; background: var(--text); border-radius: 6px; overflow: hidden;
+  font-size: calc(min(100vw - 32px, 488px) / var(--n) * .5);
+  touch-action: manipulation; user-select: none; -webkit-user-select: none;
+}
+.kr-cell {
+  position: relative; aspect-ratio: 1; padding: 0; border: 0; border-radius: 0; background: var(--card);
+  color: var(--accent); font: inherit; font-weight: 700; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.kr-cell.black { background: #2a2d38; }
+.kr-cell.clue { background: linear-gradient(to top right, #2a2d38 calc(50% - 1px), #777c8c 50%, #2a2d38 calc(50% + 1px)); }
+.kr-cell i { position: absolute; font-style: normal; font-size: .46em; color: #fff; }
+.kr-cell i.r { top: 8%; right: 8%; }
+.kr-cell i.d { bottom: 8%; left: 8%; }
+.kr-cell i.ok { opacity: .4; }
+.kr-cell i.bad { color: #ff6b70; }
+.kr-cell.sel { background: #b9c6ff; color: #1d2130; }
+.kr-cell.bad { color: #e5484d; }
+
+/* スリザーリンク */
+.sl-board {
+  display: grid; aspect-ratio: 1;
+  font-size: calc(min(100vw - 32px, 488px) / var(--n) * .4);
+  touch-action: manipulation; user-select: none; -webkit-user-select: none;
+}
+.sl-dot { background: var(--text); border-radius: 50%; margin: 28%; }
+.sl-cell { display: flex; align-items: center; justify-content: center; color: var(--text); font-weight: 700; line-height: 1; }
+.sl-cell.ok { color: var(--ok); }
+.sl-cell.bad { color: #e5484d; }
+.sl-edge { position: relative; padding: 0; border: 0; background: none; color: var(--sub); font-size: .5em; line-height: 1; }
+.sl-edge::after { content: ""; position: absolute; border-radius: 3px; background: var(--line); opacity: .6; }
+.sl-edge.h::after { left: -8%; right: -8%; top: 38%; bottom: 38%; }
+.sl-edge.v::after { top: -8%; bottom: -8%; left: 38%; right: 38%; }
+.sl-edge[data-v="1"]::after { background: var(--accent); opacity: 1; }
+.sl-edge.h[data-v="1"]::after { top: 28%; bottom: 28%; }
+.sl-edge.v[data-v="1"]::after { left: 28%; right: 28%; }
+.sl-edge[data-v="2"]::after { display: none; }
+.sl-edge[data-v="2"]::before { content: "✕"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
