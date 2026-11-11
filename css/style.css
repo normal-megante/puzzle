@@ -90,3 +90,21 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .l-cell.on { background: #ffd23f; box-shadow: 0 0 10px rgba(255, 210, 63, .7); }
 .l-cell:active { transform: scale(.94); }
+
+/* マインスイーパー */
+.m-board {
+  display: grid; grid-template-columns: repeat(var(--w), 1fr); gap: 2px;
+  padding: 3px; background: var(--line); border-radius: 10px;
+  font-size: calc(min(100vw - 32px, 488px) / var(--w) * .52);
+  touch-action: manipulation; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+}
+.m-cell {
+  aspect-ratio: 1; border: 0; border-radius: 4px; padding: 0; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent); font: inherit; font-weight: 700; line-height: 1;
+}
+.m-cell.open { background: var(--card); }
+.m-cell.hit { background: #e5484d; }
+.m-cell.n1 { color: #3b7dd8; } .m-cell.n2 { color: #2fa66a; } .m-cell.n3 { color: #e5484d; }
+.m-cell.n4 { color: #8e5bd6; } .m-cell.n5 { color: #c9762a; } .m-cell.n6 { color: #1fa3a3; }
+.m-cell.n7 { color: var(--text); } .m-cell.n8 { color: var(--sub); }
