@@ -16,6 +16,9 @@ const FILES = [
   'js/games/merge.js',
   'js/games/memory.js',
   'js/games/hanoi.js',
+  'js/games/hitblow.js',
+  'js/games/same.js',
+  'js/games/ice.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];

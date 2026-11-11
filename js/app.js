@@ -25,6 +25,19 @@ function makeApi(id) {
       try { localStorage.setItem(key(k), JSON.stringify(v)); } catch { /* 保存不可でも遊べる */ }
     },
     fmtTime,
+    // スワイプ検出。cb(向き) 向き: 0=左 1=上 2=右 3=下。el には CSS で touch-action: none を付ける。
+    swipe(el, cb) {
+      let sx = 0, sy = 0, down = false;
+      el.addEventListener('pointerdown', e => { down = true; sx = e.clientX; sy = e.clientY; });
+      el.addEventListener('pointercancel', () => { down = false; });
+      el.addEventListener('pointerup', e => {
+        if (!down) return;
+        down = false;
+        const dx = e.clientX - sx, dy = e.clientY - sy;
+        if (Math.max(Math.abs(dx), Math.abs(dy)) < 24) return;
+        cb(Math.abs(dx) > Math.abs(dy) ? (dx < 0 ? 0 : 2) : (dy < 0 ? 1 : 3));
+      });
+    },
     // 時間表示つきタイマー。start() は何度呼んでもよい。stop() は経過秒を返す。
     timer(el) {
       let t0 = 0, id = null, sec = 0;

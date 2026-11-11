@@ -21,7 +21,7 @@ registerPuzzle({ id, name, icon, desc,
   start(root, api) { /* root に画面を作る */ return () => { /* 後片付け(タイマー・キー入力解除) */ }; } });
 ```
 - `api.load(key, 初期値)` / `api.save(key, 値)` … localStorage(`puzzle.<id>.<key>`)
-- `api.fmtTime(秒)` … `m:ss` / `api.timer(表示する要素)` … `{start, stop(経過秒を返す), reset}`(新しいパズルはこれを使う)
+- `api.fmtTime(秒)` … `m:ss` / `api.timer(表示する要素)` … `{start, stop(経過秒を返す), reset}`(新しいパズルはこれを使う) / `api.swipe(要素, 向き => …)` … 0左 1上 2右 3下
 - ES modules は使わない(file:// で動かなくなるため)。グローバルは `Puzzles` と `registerPuzzle` だけ。
 
 ## 決めたこと
@@ -40,10 +40,11 @@ registerPuzzle({ id, name, icon, desc,
 - [x] 4 マインスイーパー(初級9×9/中級11×15/上級13×20、1手目安全、長押し・右クリック・旗モード、数字タップでまとめ開け、CSS接頭辞 `m-`)
 - [x] 5 PWA化(`manifest.webmanifest` id=`puzzle/`、`sw.js`、`icons/`)+GitHub Pages 公開
 - [x] 6 数字合体(2048系、`n-`、途中保存あり)・神経衰弱(`c-`)・ハノイの塔(`h-`)。共通タイマー `api.timer(el)` を追加
-- [ ] 7〜 `IDEAS.md` の一覧から順に追加(オリジナルルールは元の定番を作った後)
+- [x] 7 ヒット&ブロー(`b-`)・さめがめ(`s-`、1手戻す)・氷の床(`i-`、幅優先探索で解ける問題を自動生成)。共通スワイプ `api.swipe(el, cb)` を追加
+- [ ] 8〜 `IDEAS.md` の一覧から順に追加(オリジナルルールは元の定番を作った後)
 
 作りたいパズルの一覧と作る順番の目安は `IDEAS.md`(必要な時だけ読む)。メニューが増えたら分類やお気に入りを検討。
 
 公開先:https://normal-megante.github.io/puzzle/ (GitHub Pages、main。2026-11-11 公開・表示確認済み)。更新の反映は、commit 後にユーザーが GitHub Desktop で「Push origin」を押す(gh コマンドは無い)。
 
-次にやること:ユーザーが GitHub Desktop で Push → スマホ実機の感想をもらう(長押しの旗、機内モード起動、数字合体のスワイプは未確認)→ `IDEAS.md` の順番1の残り(ヒット&ブロー、さめがめ、光った順番、氷の床)。
+次にやること:ユーザーが GitHub Desktop で Push → スマホ実機の感想をもらう(長押しの旗、機内モード起動、スワイプ操作は未確認)→ 次の候補:光った順番、倉庫番(→ 鏡の倉庫番)、数独、一筆書き。メニューが9個になったので分類表示も検討。
