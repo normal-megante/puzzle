@@ -514,3 +514,56 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .kk-cell.bad { color: #e5484d; }
 .kk-cell.cbad > b { color: #e5484d; }
 .kk-cell .d-notes { padding: 26% 6% 2%; }
+
+/* 美術館 */
+.ak-board {
+  display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 2px;
+  padding: 3px; background: var(--line); border-radius: 10px;
+  font-size: calc(min(100vw - 32px, 488px) / var(--n) * .5);
+  touch-action: manipulation; user-select: none; -webkit-user-select: none;
+}
+.ak-cell {
+  aspect-ratio: 1; padding: 0; border: 0; border-radius: 4px; background: var(--card);
+  color: var(--sub); font: inherit; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.ak-cell.lit { background: #ffe58a; color: #7a6a20; }
+.ak-cell.bad { background: #f3a0a3; }
+.ak-cell.black { background: #2a2d38; color: #fff; font-weight: 700; }
+.ak-cell.black.ok { color: rgba(255, 255, 255, .4); }
+.ak-cell.black.bad { background: #2a2d38; color: #ff6b70; }
+
+/* スターバトル */
+.st-board {
+  display: grid; grid-template-columns: repeat(var(--n), 1fr);
+  border: 3px solid var(--text); border-radius: 6px; overflow: hidden; background: var(--card);
+  font-size: calc(min(100vw - 38px, 482px) / var(--n) * .6);
+  touch-action: manipulation; user-select: none; -webkit-user-select: none;
+}
+.st-cell {
+  aspect-ratio: 1; padding: 0; border: 0; border-radius: 0;
+  border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  color: var(--text); font: inherit; line-height: 1;
+}
+.st-cell.br { border-right: 3px solid var(--text); }
+.st-cell.bb { border-bottom: 3px solid var(--text); }
+.st-cell.bad { color: #e5484d; }
+
+/* 橋をかけろ */
+.hs-board {
+  position: relative; aspect-ratio: 1; background: var(--card); border-radius: 10px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: calc(min(100vw - 32px, 488px) / var(--n) * .45);
+  touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.hs-edge { position: absolute; padding: 0; border: 0; background: none; display: flex; align-items: center; justify-content: center; gap: 14%; }
+.hs-edge.h { flex-direction: column; }
+.hs-edge i { background: var(--text); border-radius: 2px; pointer-events: none; }
+.hs-edge.h i { width: 100%; height: 4px; }
+.hs-edge.v i { height: 100%; width: 4px; }
+.hs-isl {
+  position: absolute; z-index: 1; border-radius: 50%; background: var(--card); border: 3px solid var(--text);
+  display: flex; align-items: center; justify-content: center; font-weight: 700; line-height: 1; box-sizing: border-box;
+}
+.hs-isl.ok { background: var(--ok); border-color: var(--ok); color: #fff; }
+.hs-isl.bad { background: #e5484d; border-color: #e5484d; color: #fff; }

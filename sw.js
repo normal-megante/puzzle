@@ -42,6 +42,9 @@ const FILES = [
   'js/games/chain.js',
   'js/games/match3.js',
   'js/games/kenken.js',
+  'js/games/akari.js',
+  'js/games/star.js',
+  'js/games/hashi.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
 ];
